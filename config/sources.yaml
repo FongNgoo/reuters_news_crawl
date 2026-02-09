@@ -1,0 +1,4 @@
+reuters:
+  enabled: true
+  language: en
+  regions: [global]

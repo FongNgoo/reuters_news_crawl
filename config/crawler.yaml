@@ -1,0 +1,15 @@
+crawler:
+  source: reuters
+
+  start_date: "2022-01-01"
+  end_date: "2025-06-25"
+
+  output:
+    format: parquet
+    path: data/processed/reuters
+
+  options:
+    deduplicate: true
+    partition_by:
+      - year
+      - month

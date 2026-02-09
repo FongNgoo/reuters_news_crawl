@@ -1,0 +1,42 @@
+reuters-news-dataset/
+│
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── config/
+│   ├── tickers.yaml          # Danh sách công ty / ticker / sector
+│   ├── sources.yaml          # Cấu hình nguồn (Reuters, Guardian…)
+│   └── crawler.yaml          # Date range, rate limit, output format
+│
+├── data/
+│   ├── raw/                  # HTML gốc (optional, để debug)
+│   ├── processed/            # Clean text (JSON/Parquet)
+│   └── logs/                 # Log crawl
+│
+├── src/
+│   ├── __init__.py
+│   │
+│   ├── common/
+│   │   ├── http.py           # requests session, retry, headers
+│   │   ├── utils.py          # hash, datetime, text clean
+│   │   └── logger.py         # logging chuẩn
+│   │
+│   ├── schema/
+│   │   └── news.py           # Unified News schema (dataclass)
+│   │
+│   ├── sources/
+│   │   ├── __init__.py
+│   │   └── reuters/
+│   │       ├── search.py     # Search & collect article URLs
+│   │       ├── parser.py     # Parse article content
+│   │       └── scraper.py    # Orchestrator cho Reuters
+│   │
+│   ├── pipelines/
+│   │   ├── historical.py     # Crawl dữ liệu quá khứ
+│   │   └── daily.py          # Crawl cập nhật hằng ngày
+│   │
+│   └── main.py               # Entry point
+│
+└── notebooks/
+    └── sanity_check.ipynb    # Kiểm tra dữ liệu nhanh
