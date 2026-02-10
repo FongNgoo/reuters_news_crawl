@@ -41,13 +41,14 @@ def articles_to_dataframe(articles: List[NewsArticle]) -> pd.DataFrame:
 
 
 def export_parquet(df: pd.DataFrame, output_path: Path):
-    output_path.mkdir(parents=True, exist_ok=True)
-
+    # ✅ Fixed: Removed mkdir as to_parquet with partition_cols creates the directory structure
+    
     df = (
         df.sort_values(by=["published_at", "url"])
           .drop_duplicates(subset=["url"])
     )
 
+    # to_parquet with partition_cols will automatically create the folder structure
     df.to_parquet(
         output_path,
         engine="pyarrow",

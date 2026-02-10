@@ -1,7 +1,7 @@
 from datetime import date, timedelta
 import hashlib
 
-def spilit_data_range(start: date, end: date, by: str = "month"):
+def split_date_range(start: date, end: date, by: str = "month"):
     """
     Chia dòng thời gian thành các window có thời lượng khoản 1 tháng
     """
@@ -22,4 +22,4 @@ def spilit_data_range(start: date, end: date, by: str = "month"):
     return windows
 
 def hash_url(url: str) -> str:
-    return hashlib.md5(url.encode("utf-8")).hexdigest
+    return hashlib.md5(url.encode("utf-8")).hexdigest()

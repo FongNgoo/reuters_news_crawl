@@ -1,9 +1,9 @@
-from datetime import date, timedelta
+from datetime import date, datetime  # ✅ Fixed: Import datetime class
 from typing import List, Tuple
-import datetime
 
 from common.http import HttpClient
 from common.logger import get_logger
+from common.utils import split_date_range  # ✅ Fixed: Import split_date_range function
 from schema.news import ArticleMeta
 from bs4 import BeautifulSoup
 
@@ -26,7 +26,7 @@ class ReutersSearcher:
             f"range={start_date} → {end_date}"
         )
 
-        windows = self._split_date_range(start_date, end_date)
+        windows = split_date_range(start_date, end_date)  # ✅ Fixed: Use imported function
 
         all_results: List[ArticleMeta] = []
 
@@ -88,9 +88,10 @@ class ReutersSearcher:
 
             published_raw = time_tag.get("datetime")
             try:
+                # ✅ Fixed: Use datetime class and keep as datetime object
                 published_at = datetime.fromisoformat(
-                    published_raw.replace("Z", "")
-                ).date()
+                    published_raw.replace("Z", "+00:00")
+                )
             except Exception:
                 continue
 
@@ -98,7 +99,7 @@ class ReutersSearcher:
                 ArticleMeta(
                     url=url,
                     title=title,
-                    published_at=published_at,
+                    published_at=published_at,  # ✅ Fixed: Now datetime, not date
                     source="reuters"
                 )
             )

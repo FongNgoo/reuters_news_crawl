@@ -12,10 +12,10 @@ class HttpClient:
             max_retries: int = 3,
             sleep_between: float = 1.0
     ):
-        self.session = requests.session
+        self.session = requests.Session()
         self.timeout = timeout
         self.max_retries = max_retries
-        self.sleep_beteween = sleep_between
+        self.sleep_between = sleep_between
 
         self.session.headers.update(
             {
@@ -37,7 +37,7 @@ class HttpClient:
                 )
                 
                 if response.status_code == 200:
-                    time.sleep(self.sleep_beteween)
+                    time.sleep(self.sleep_between)
                     return response.text
                 
                 logger.warning(
@@ -46,10 +46,10 @@ class HttpClient:
 
             except requests.RequestException as e:
                 logger.warning(
-                    f"Request Eror | attempt = {attempt} | {e}"
+                    f"Request Error | attempt = {attempt} | {e}"
                 )
             
-            time.sleep(self.sleep_beteween)
+            time.sleep(self.sleep_between)
 
         logger.error(f"Fail after retries | url = {url}")
 

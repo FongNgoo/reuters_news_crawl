@@ -6,13 +6,15 @@ from schema.news import NewsArticle
 from common.logger import get_logger
 from sources.reuters.search import ReutersSearcher
 from sources.reuters.parser import ReutersParser
+from sources.reuters.rss_index import ReutersRSSIndex
 
 logger = get_logger(__name__)
 
 class ReutersScraper:
-    def __init__(self, searcher: ReutersSearcher, parser: ReutersParser):
+    def __init__(self, searcher: ReutersSearcher, parser: ReutersParser, index: ReutersRSSIndex):
         self.searcher = searcher
         self.parser = parser
+        self.index = index
 
     def crawl(
         self,
@@ -23,7 +25,11 @@ class ReutersScraper:
         end_date
     ) -> List[NewsArticle]:
 
-        metas = self.searcher.search(company_name, start_date, end_date)
+        metas = [
+            m for m in self.index.iter_articles()
+            if start_date <= m.published_at.date() <= end_date
+            and company_name.lower() in m.title.lower()
+        ]
 
         articles = []
         seen_urls = set()

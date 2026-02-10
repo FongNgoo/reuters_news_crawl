@@ -1,110 +1,112 @@
 # config/tickers.yaml
-- no: 1
-  sector: Information Technology
-  company: Apple
-  ticker: AAPL
+# ✅ Fixed: Added "tickers" key wrapper
+tickers:
+  - no: 1
+    sector: Information Technology
+    company: Apple
+    ticker: AAPL
 
-- no: 2
-  sector: Information Technology
-  company: Microsoft
-  ticker: MSFT
+  - no: 2
+    sector: Information Technology
+    company: Microsoft
+    ticker: MSFT
 
-- no: 3
-  sector: Communication Services
-  company: Alphabet
-  ticker: GOOGL
+  - no: 3
+    sector: Communication Services
+    company: Alphabet
+    ticker: GOOGL
 
-- no: 4
-  sector: Communication Services
-  company: Meta Platforms
-  ticker: META
+  - no: 4
+    sector: Communication Services
+    company: Meta Platforms
+    ticker: META
 
-- no: 5
-  sector: Consumer Discretionary
-  company: Amazon
-  ticker: AMZN
+  - no: 5
+    sector: Consumer Discretionary
+    company: Amazon
+    ticker: AMZN
 
-- no: 6
-  sector: Consumer Discretionary
-  company: Tesla
-  ticker: TSLA
+  - no: 6
+    sector: Consumer Discretionary
+    company: Tesla
+    ticker: TSLA
 
-- no: 7
-  sector: Consumer Staples
-  company: Walmart
-  ticker: WMT
+  - no: 7
+    sector: Consumer Staples
+    company: Walmart
+    ticker: WMT
 
-- no: 8
-  sector: Consumer Staples
-  company: Procter & Gamble
-  ticker: PG
+  - no: 8
+    sector: Consumer Staples
+    company: Procter & Gamble
+    ticker: PG
 
-- no: 9
-  sector: Financials
-  company: JPMorgan Chase
-  ticker: JPM
+  - no: 9
+    sector: Financials
+    company: JPMorgan Chase
+    ticker: JPM
 
-- no: 10
-  sector: Financials
-  company: Bank of America
-  ticker: BAC
+  - no: 10
+    sector: Financials
+    company: Bank of America
+    ticker: BAC
 
-- no: 11
-  sector: Health Care
-  company: UnitedHealth Group
-  ticker: UNH
+  - no: 11
+    sector: Health Care
+    company: UnitedHealth Group
+    ticker: UNH
 
-- no: 12
-  sector: Health Care
-  company: Johnson & Johnson
-  ticker: JNJ
+  - no: 12
+    sector: Health Care
+    company: Johnson & Johnson
+    ticker: JNJ
 
-- no: 13
-  sector: Industrials
-  company: Caterpillar
-  ticker: CAT
+  - no: 13
+    sector: Industrials
+    company: Caterpillar
+    ticker: CAT
 
-- no: 14
-  sector: Industrials
-  company: Boeing
-  ticker: BA
+  - no: 14
+    sector: Industrials
+    company: Boeing
+    ticker: BA
 
-- no: 15
-  sector: Energy
-  company: Exxon Mobil
-  ticker: XOM
+  - no: 15
+    sector: Energy
+    company: Exxon Mobil
+    ticker: XOM
 
-- no: 16
-  sector: Energy
-  company: Chevron
-  ticker: CVX
+  - no: 16
+    sector: Energy
+    company: Chevron
+    ticker: CVX
 
-- no: 17
-  sector: Materials
-  company: Linde
-  ticker: LIN
+  - no: 17
+    sector: Materials
+    company: Linde
+    ticker: LIN
 
-- no: 18
-  sector: Materials
-  company: Freeport-McMoRan
-  ticker: FCX
+  - no: 18
+    sector: Materials
+    company: Freeport-McMoRan
+    ticker: FCX
 
-- no: 19
-  sector: Utilities
-  company: NextEra Energy
-  ticker: NEE
+  - no: 19
+    sector: Utilities
+    company: NextEra Energy
+    ticker: NEE
 
-- no: 20
-  sector: Utilities
-  company: Duke Energy
-  ticker: DUK
+  - no: 20
+    sector: Utilities
+    company: Duke Energy
+    ticker: DUK
 
-- no: 21
-  sector: Real Estate
-  company: American Tower
-  ticker: AMT
+  - no: 21
+    sector: Real Estate
+    company: American Tower
+    ticker: AMT
 
-- no: 22
-  sector: Real Estate
-  company: Prologis
-  ticker: PLD
+  - no: 22
+    sector: Real Estate
+    company: Prologis
+    ticker: PLD

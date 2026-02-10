@@ -8,6 +8,7 @@ from common.http import HttpClient
 from schema.news import NewsArticle
 from sources.reuters.search import ReutersSearcher
 from sources.reuters.parser import ReutersParser
+from sources.reuters.rss_index import ReutersRSSIndex
 from sources.reuters.scraper import ReutersScraper
 
 logger = get_logger(__name__)
@@ -28,9 +29,11 @@ class HistoricalReutersPipeline:
         self.http = HttpClient()
         self.searcher = ReutersSearcher(self.http)
         self.parser = ReutersParser(self.http)
+        self.index = ReutersRSSIndex()
         self.scraper = ReutersScraper(
             searcher=self.searcher,
-            parser=self.parser
+            parser=self.parser,
+            index=self.index
         )
 
     def run(self) -> List[NewsArticle]:

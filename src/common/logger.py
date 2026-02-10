@@ -1,6 +1,6 @@
 import logging
 
-def get_logger(name:str) -> logging.Logger:
+def get_logger(name: str) -> logging.Logger:  # ✅ Fixed: Added space after colon
     logger = logging.getLogger(name)
 
     if logger.handlers:

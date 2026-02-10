@@ -1,4 +1,44 @@
 reuters:
-  enabled: true
+  enabled: false          # QUAN TRỌNG
   language: en
   regions: [global]
+  reason: blocked_401
+
+guardian:
+  enabled: true
+  type: rss
+  source_name: The Guardian
+  base_url: https://www.theguardian.com
+  rss:
+    - https://www.theguardian.com/business/rss
+    - https://www.theguardian.com/world/rss
+  rate_limit: 1.0
+  parser: guardian
+
+investopedia:
+  enabled: true
+  type: html
+  source_name: Investopedia
+  base_url: https://www.investopedia.com
+  categories:
+    - markets-news
+    - economy
+    - news
+  rate_limit: 0.5
+  parser: investopedia
+
+cnbc:
+  enabled: true
+  type: html
+  source_name: CNBC
+  base_url: https://www.cnbc.com
+  sections:
+    - markets
+    - investing
+  rate_limit: 1.5
+  parser: cnbc
+  strip_elements:
+    - video
+    - aside
+    - script
+
