@@ -1,5 +1,7 @@
+# config/sources.yaml
+
 reuters:
-  enabled: false          # QUAN TRỌNG
+  enabled: false          # Reuters blocked
   language: en
   regions: [global]
   reason: blocked_401
@@ -12,6 +14,7 @@ guardian:
   rss:
     - https://www.theguardian.com/business/rss
     - https://www.theguardian.com/world/rss
+    - https://www.theguardian.com/technology/rss  # Added tech feed
   rate_limit: 1.0
   parser: guardian
 
@@ -20,9 +23,7 @@ investopedia:
   type: html
   source_name: Investopedia
   base_url: https://www.investopedia.com
-  categories:
-    - markets-news
-    - economy
+  categories:  # ✅ FIX: These are used for search terms, not URLs
     - news
   rate_limit: 0.5
   parser: investopedia
@@ -35,10 +36,10 @@ cnbc:
   sections:
     - markets
     - investing
+    - technology  # Added tech section
   rate_limit: 1.5
   parser: cnbc
   strip_elements:
     - video
     - aside
     - script
-
